@@ -3,7 +3,7 @@ title: "HW 1"
 subtitle: "Data 180, Professor Kennedy"
 author: 
   name: "Bremar Brown"
-  email: "XXXX@dickinson.edu"
+  email: "Brownbre@dickinson.edu"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 output: 
   html_document
