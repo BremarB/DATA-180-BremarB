@@ -2,8 +2,8 @@
 title: "HW 2: Visualization, Base R"
 subtitle: "Data 180, Professor Kennedy"
 author: 
-  name: "XXXX"
-  email: "XXXX@dickinson.edu"
+  name: "Bremar Brown"
+  email: "Brownbre@dickinson.edu"
 date: '`r format(Sys.Date(), "%B %d, %Y")`' # no need to change date since this line grabs today's date
 output: 
   html_document
@@ -37,11 +37,13 @@ head(Cars93)
 ## Task 1
 a) Create a Frequency table and Relative Frequency table (latter uses percentages) for the variable `Type`. Make sure to round all digits to 3 digits.
 ```{r}
+table(Cars93$Type)
 
+round(table(Cars93$Type)/nrow(Cars93),3)
 ```
 b) Create a frequency bar graph for the variable `Type`. You can have count on the y axis.
 ```{r}
-
+barplot(table(Cars93$Type),ylab="Frequency",xlab ="Type" ,cex.lab=1.2,col=c(2,3,4,5,6,7))
 ```
 
 *	Your axes should be labeled and legible
@@ -51,7 +53,7 @@ b) Create a frequency bar graph for the variable `Type`. You can have count on t
 
 c) Create a pie chart of the variable `Type`.
 ```{r}
-
+pie(table(Cars93$Type), main="Type",col=c(2,3,4,5,6,7),cex=1.2)
 ```
 
 * The plot should include a title using the main argument.
@@ -59,11 +61,13 @@ c) Create a pie chart of the variable `Type`.
 
 d) What is the mode of the variable `Type`? Comment.
 
+#The mode of the variable 'Type' is Midsize.
 
 ## Task 2 
 a) Create a histogram of the variable `Horsepower`.
 ```{r}
-
+Horsepower<-Cars93$Horsepower
+hist(Horsepower, cex.lab=1.2,cex.axis=1.2, col="red")
 ```
 
 *	Your axes should be labeled
@@ -73,6 +77,8 @@ a) Create a histogram of the variable `Horsepower`.
 
 b) Create a second histogram with breaks at 25 HP increments instead of 50.
 ```{r}
+Horsepower<-Cars93$Horsepower
+hist(Horsepower,cex.lab=1.2,cex.axis=1.2,col="red",breaks=seq(50,300,25))
 
 ```
 
@@ -81,33 +87,41 @@ b) Create a second histogram with breaks at 25 HP increments instead of 50.
 
 c) Which histogram more closely follows or rule of thumb for the suggested number of classes? Explain.
 ```{r}
-
+#The histogram using breaks is a more detailed version of the histogram and closely follows the suggested number of classes. It going by increments of 25 instead of 50 shows a more accurate representation of the data.
 ```
 
 
 ## Task 3 
 a) What is the type of variable `Passengers`? (Categorical nominal/ordinal or Numerical discrete/continuous?) What happens if we were to make a histogram for `Passengers`? What is the problem with this graph?
 ```{r}
-
+#A categorical nominal.
+Passengers <-Cars93$Passengers
+hist(Passengers, cex.lab=1.2,cex.axis=1.2, col="red")
+#The data shown on the histogram doesn't show fully accurate discription of the data
 ```
 
 b) Correct the problem in part (a) by creating a more appropriate visualization. Make sure to label your axes, place a title, choose a custom color as in the previous graphs. (Bonus: use factor() with levels option to display x axis values with no observations on the plot.)
 ```{r}
-
+Passengers <-Cars93$Passengers
+hist(Passengers, cex.lab=1.2,cex.axis=1.2, col="red",breaks = (9))
 ```
 
 ## Task 4 
 a) Make a histogram of the variable `Length` (the default breaks are fine). Other aspects of the plot should be as in part (a) in Task 2.
 ```{r}
-
+Length<-Cars93$Length
+hist(Length, cex.lab=1.2,cex.axis=1.2, col="Green")
 ```
 
 b) What is the shape of the distribution?
-
+#This distribution is symmetric
 
 c) Find the mean and median of the variable `Length.` Do these answers meet your expectations from part (b)?
 ```{r}
+mean(Cars93$Length)
+median(Cars93$Length)
 
+#Yes it does
 ```
 
 You are done! 🏁 Don't forget to commit and push your .Rmd file to your Github repository before the due date.
