@@ -35,3 +35,9 @@ rng
 
 scale(Data_M, center = F, scale=rng)
 
+
+
+
+install.packages("planets")
+library(planets)
+head(planets)
