@@ -1,5 +1,5 @@
 library(readr)
-
+#32/40.
 #1a Data Wrangling
 
 
@@ -17,6 +17,7 @@ head(loan_default_data_set,0)
 #1c
 
 #This is a numeric data set 
+#(-2)
 
 #1d
 
@@ -30,10 +31,12 @@ colSums(is.na(loan_default_data_set))
 
 # We should take out the mising values so we are still able to run functions properly.
 
+# What are the dimensions of the data ? (-2)
+
 #1f
 
 # I would fit a unsupervised learning model because there is no way to predict based on specific variables
-
+#(-2)
 #1g
 
 newdataset <- na.omit(loan_default_data_set)
@@ -53,7 +56,7 @@ mean(newdataset$num_card_inq_24_month)
 median(newdataset$num_card_inq_24_month)
 frequency(newdataset$num_card_inq_24_month)
 
-newnewdataset = read.csv("https://raw.githubusercontent.com/KennedyOdongo/DATA-180-Introduction-to-Data-Science--Section-2/main/data/loan_default_data_set.csv",stringsAsFactors = F)
+newnewdataset = read.csv("C:/Users/rodge/OneDrive/Desktop/DATA 180 -Intoduction to Data Science/DATA-180-Introduction-to-Data-Science--Section-2/data/loan_default_data_set.csv")
 
 mode = function(){
   return(sort(-table(newnewdataset$num_card_inq_24_month))[1])
@@ -63,9 +66,9 @@ mode()
 
 #Right Skewed
 
-mean(newdataset$tot_amount_currently_past_due)
-median(newdataset$tot_amount_currently_past_due)
-frequency(newdataset$tot_amount_currently_past_due)
+mean(newnewdataset$tot_amount_currently_past_due)
+median(newnewdataset$tot_amount_currently_past_due)
+frequency(newnewdataset$tot_amount_currently_past_due)
 mode = function(){
   return(sort(-table(newnewdataset$tot_amount_currently_past_due))[1])
 }
@@ -108,12 +111,12 @@ barplot(sort(table(newdataset$rep_education), decreasing=T), ylab ="Frequency",x
 
 #3c
 
-hist(newdataset$rep_income, cex.lab=1.2, cex.axis=1.2, col = "red")
+hist(newnewdataset$rep_income, cex.lab=1.2, cex.axis=1.2, col = "red")
 
 #3d
 
-boxplot(newdataset$tot_balance, horizontal = T, col="lightblue", xlab="Balance", cex.axis=1.2)
-fivenum(newdataset$tot_balance)
+boxplot(newnewdataset$tot_balance, horizontal = T, col="lightblue", xlab="Balance", cex.axis=1.2)
+fivenum(newnewdataset$tot_balance)
 
 med = median(newdataset$tot_balance)
 abs_dev = abs(newdataset$tot_balance-med)
@@ -123,4 +126,4 @@ Tmin = med-(3*mad)
 Tmax = med+(3*mad)
 
 newdataset$tot_balance[which(newdataset$tot_balance<Tmin | newdataset$tot_balance>Tmax)]
-# The only outlier is 0
+# The only outlier is 0 (-2)
